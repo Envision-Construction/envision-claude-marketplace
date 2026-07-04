@@ -1,13 +1,24 @@
 {
   "name": "envision-claude-marketplace",
-  "owner": { "name": "Envision-Construction" },
+  "owner": {
+    "name": "Envision-Construction"
+  },
   "description": "Envision-Construction's Claude Code plugin registry. Plugins listed here are forks/controls owned by the org, separated from upstream merge timing.",
   "plugins": [
     {
       "name": "nano-banana-2",
-      "source": { "source": "github", "repo": "Envision-Construction/nano-banana-2-mcp" },
+      "source": {
+        "source": "github",
+        "repo": "Envision-Construction/nano-banana-2-mcp"
+      },
       "description": "Google Gemini Nano Banana 2 image generation via MCP (Envision-Construction fork of daveremy/nano-banana-2-mcp). Patched: inner marketplace.json removed.",
       "version": "0.1.1"
+    },
+    {
+      "name": "envision-insurance",
+      "source": "./plugins/envision-insurance",
+      "description": "Forensic insurance research: captive formation and IRS enforcement (831(b)/T.D. 10029), cell structures, coverage lapses, premium finance. Skill + 4 specialist agents, primary-source citation discipline. First-party.",
+      "version": "1.0.0"
     }
   ]
 }
