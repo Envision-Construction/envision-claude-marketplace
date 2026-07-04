@@ -1,6 +1,8 @@
 {
   "name": "envision-insurance",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Forensic insurance research: captive formation (831(b)/831(a), T.D. 10029 enforcement), cell and rent-a-captive structures, coverage lapse law, premium finance (IPFS is not the carrier). One orchestrator skill + four specialist agents with primary-source citation discipline.",
-  "author": { "name": "Prometheus Ventures / Envision Construction" }
+  "author": {
+    "name": "Prometheus Ventures / Envision Construction"
+  }
 }
