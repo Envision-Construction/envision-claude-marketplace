@@ -11,7 +11,7 @@ Use when the ask spans multiple specialist domains (e.g. "review these broker ca
 
 ## 2. Analyze (one parallel dispatch)
 
-Dispatch all relevant specialists in a single message. Each prompt carries:
+Dispatch all relevant specialists in a single message. **Synchronization contract** (a 2026-07-04 eval run hit this race): specialists may finish Writing their section files after their return message arrives, or return before the Write lands. Before synthesizing, the orchestrator verifies each expected section file EXISTS on disk (ls/Glob) and re-checks once after a short wait for any missing file — never conclude a section "never landed" from return-message timing alone. Each prompt carries:
 - The section assignment (e.g. tax agent → Regulatory; structures agent → Legal-structural + domicile matrix; coverage-counsel → program mechanics / premium-finance exposure).
 - **Pointers**: manifest path + the specific local file paths it must Read. Never paste document bodies into prompts.
 - An output path to Write its full section, and an instruction to return a distilled summary under 500 words.

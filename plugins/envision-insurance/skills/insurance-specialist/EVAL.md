@@ -19,6 +19,10 @@
 - **Blind preference 20–4** (binomial p ≈ 0.0008 vs. chance) on correctness/currency/usefulness criteria with length explicitly not rewarded.
 - **Cost**: with-skill runs average roughly +90% wall-clock and +15% tokens (reference reading + verification passes). Iteration-1 smoke data: ~788s vs ~406s, ~171K vs ~150K tokens per run.
 
+## Description-trigger optimization — attempted, instrument mismatch (2026-07-04)
+
+The skill-creator trigger optimizer (20 realistic queries, 3 runs each, 12/8 train-test split) was run once and its measurement discarded as invalid for this estate: it probes bare headless `claude -p` where the description competes against ~900 installed skills with no semantic-routing layer, and measured 0% recall even on "what's the current 831(b) premium cap for 2026" (its improve loop also requires an env API key this machine doesn't expose). Production triggering here is mediated by the [SKILL-AUTO] gemini-embedding hook, where this description surfaced at cosine 0.64–0.79 on every insurance-adjacent prompt across the authoring session — including contextual triggers that never said "insurance" — and all 36 with-skill eval runs followed the skill correctly when routed. Re-run the optimizer only inside an isolated single-skill config if bare-triggering ever matters (e.g., distribution to estates without semantic skill routing).
+
 ## Provenance
 
 Prompt set and answer keys derive from primary sources verified 2026-07-04 (Rev. Proc. 2025-32; T.D. 10029 / 90 FR 3534; Drake Plastics No. 4:25-cv-02570; CIC Services No. 3:25-cv-00146; NC S.L. 2024-29; O.C.G.A. 33-22-13; 8 V.S.A. 6004/6014/6034c; Rev. Proc. 2003-47). Keys age with the law — re-derive from `references/current-legislation.md` after each refresh before reusing this harness.
